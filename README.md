@@ -1,11 +1,14 @@
 # git-switch-fzf
 
 Simple bash wrapper around [git](https://github.com/git/git) and [fzf](https://github.com/junegunn/fzf) 
-for interactively search branches( & tags ) and switching (and more) to them.
+for interactively search branches( & tags ) and switching (and more) to them. 
+
+Do `git switch` or `git checkout` faster without remembering branch names!
+
 
 ![screenshot](./img/screenshot.png "screenshot")
 <details>
-  <summary>Usage video</summary>
+  <summary>Usage example in GNOME/gtk repository</summary>
   <video width="640" src="https://github.com/emgyrz/git-switch-fzf/assets/12197614/647f8f8e-926d-49e9-ad3e-0c4a8f11d7b8"></video>  
 </details>
 
