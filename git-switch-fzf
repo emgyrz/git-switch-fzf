@@ -1,5 +1,19 @@
 #!/bin/bash
 
+################################################################################
+#                              git-switch-fzf                                  #
+#                                                                              #
+#  Simple bash wrapper around git and fzf                                      #
+#  for interactively search branches( & tags )                                 # 
+#  and switching (and more) to them.                                           # 
+#                                                                              #
+################################################################################
+#                                                                              #
+#  Repository - https://github.com/emgyrz/git-switch-fzf                       #
+#  Copyright (C) 2024 Max Zommer <emgyrz@gmail.com>                            #
+#                                                                              #
+################################################################################
+
 show_help() {
   cat << EOF
 
@@ -114,11 +128,16 @@ GSF_FORMAT+=' (%(color:green)%(committerdate:relative)%(color:reset))'
 
 GSF_FZF_PREVIEW_ARG='echo {}'
 
-
-
 if [ $GSF_HAS_PREVIEW == 0 ]; then
   GSF_FZF_PREVIEW_ARG=""
 fi
+
+
+# git for-each-ref
+#   $GSF_REF_TYPES - references list
+#   --sort=-committerdate - sort by commit date. newer is higher 
+#   --format="$GSF_FORMAT" - format
+#   --color=always - always put ansi colors to the output
 
 git for-each-ref \
   $GSF_REF_TYPES \
@@ -128,12 +147,12 @@ git for-each-ref \
 
 #
 #  fzf
-#    --ansi \ # чтобы воспринимались коды ansi-цветов
-#    --reverse \ # последний коммит сверху
-#    --tiebreak=begin,index \ # вес сортировки - начало строки, первые строки
-#    --no-hscroll \ # без горизонтального скрола
-#    --preview="$GSF_FZF_PREVIEW_ARG" \ # для отображения полной инфы
-#    --preview-window=up,3,wrap |\ # сверху, три строки, пренос строк
+#    --ansi - чтобы воспринимались коды ansi-цветов
+#    --reverse - последний коммит сверху
+#    --tiebreak=begin,index - вес сортировки - начало строки, первые строки
+#    --no-hscroll - без горизонтального скрола
+#    --preview="$GSF_FZF_PREVIEW_ARG" - для отображения полной инфы
+#    --preview-window=up,3,wrap - сверху, три строки, пренос строк
 fzf \
   --ansi \
   --reverse \

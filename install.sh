@@ -2,7 +2,7 @@
 
 set -e
 
-shrcFile="$HOME/.bashrc"
+SH_RC_FILE="$HOME/.bashrc"
 GSF="git-switch-fzf"
 SHARE_DIR="$HOME/.local/share/"
 BIN_DIR="$HOME/.local/bin/"
@@ -12,13 +12,13 @@ msg() {
 }
 
 if [ -f "$HOME/.zshrc" ]; then
-    shrcFile="$HOME/.zshrc"
+    SH_RC_FILE="$HOME/.zshrc"
 fi
 
-if [ ! -e "$shrcFile" ]; then
+if [ ! -e "$SH_RC_FILE" ]; then
    msg "error: cannot get shell rc file"
 else
-  msg "shell rc file is $shrcFile"
+  msg "shell rc file is $SH_RC_FILE"
 fi
 
 
@@ -48,11 +48,11 @@ ln -s "$SHARE_DIR$GSF/$GSF" "$BIN_DIR$GSF"
 
 if ! [[ $PATH == *"$BIN_DIR"* ]]; then
   msg "add $BIN_DIR to \$PATH variable"
-  echo "export PATH=\$PATH:$BIN_DIR" >> "$shrcFile"
+  echo "export PATH=\$PATH:$BIN_DIR" >> "$SH_RC_FILE"
   
-  if [[ $shrcFile == *".bashrc" ]]; then
+  if [[ $SH_RC_FILE == *".bashrc" ]]; then
     msg "update current env"
-    . $shrcFile
+    . $SH_RC_FILE
   else
      msg "WARNING! dont forget to update your current env if you want to use $GSF immediately, e.g. 'source ~/.zshrc'" 
   fi
