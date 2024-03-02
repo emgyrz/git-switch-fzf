@@ -50,44 +50,79 @@ gco
 ```
 
 
-# Usage
+## Usage
 
-```shell
-# git-switch-fzf --help
+Copy from `git-switch-fzf --help`
 
 Usage: git-switch-fzf [options]
 
-Options:
+### Options
 
-  -t, --type TYPE     | Specify TYPE of git references where to search. Can be 'local', 'remote', 'tags' separated with ',' comma. Default is 'local'. Short names are 'l', 'r' and 't'
+#### -t, --type TYPE     
+Specify `TYPE` of git references where to search. 
+
+Can be 'local', 'remote', 'tags' separated with ',' comma. 
+
+Default is 'local'. 
+
+Short names are 'l', 'r' and 't'
   
-  -r, --remote        | Same as '--type remote'
+#### -r, --remote
+Same as '--type remote'
   
-  -e, --exec CMD      | Command to which the selected value will be passed. Default is 'git switch'
+#### -e, --exec CMD
+Command to which the selected value will be passed. 
+
+Default is 'git switch'
   
-  --take-hash         | Return short commit hash instead of branch or tag name
+#### --take-hash
+Return short commit hash instead of branch or tag name
    
-  --no-preview        | Hide top preview
+#### --no-preview
+Hide top preview
   
-  -h, --help          | Print this help message
+#### -h, --help
+Print help message
   
-Examples:  
+### Examples
 
-  git-switch-fzf --type local,remote,tags  --  search in all references
-  # same as 
-  git-switch-fzf -t r,t,l
-  
-  git-switch-fzf -type t  --  search only in tags
-  
-  git-switch-fzf -e "git checkout"  --  use 'checkout' instead of 'switch' 
-  
-  git-switch-fzf -e echo  --  just print to console selected item name
-  
-  git-switch-fzf -e echo --take-hash  --  print to console hash of selected item
-  
-  echo "selected hash is \$(git-switch-fzf -e echo --take-hash)" > /tmp/test  --  use returned value in other command, e.g. for write it to file
+Basic usage without args
+```sh
+git-switch-fzf
 ```
 
+Search in all references
+```sh
+git-switch-fzf --type local,remote,tags
+# same as 
+git-switch-fzf -t r,t,l
+```
+  
+Search only in tags
+```sh
+git-switch-fzf -type t
+```
+
+Use 'checkout' instead of 'switch' 
+```sh
+git-switch-fzf -e "git checkout"
+```
+
+Just print to console selected item name
+```sh
+git-switch-fzf -e echo
+```
+
+Print to console hash of selected item
+```sh
+git-switch-fzf -e echo --take-hash
+```
+
+Use returned value in other command, e.g. for write it to file
+```sh
+echo "selected hash is \$(git-switch-fzf -e echo --take-hash)" > /tmp/test
+```
+  
 ___
 Tested and works fine on Linux and macOS. Windows - not tested
 
