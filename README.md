@@ -21,7 +21,7 @@ sudo apt-get install fzf
 brew install fzf
 ```
 
-Then you copy git-switch-fzf script to some dir that is in your `$PATH` variable. See [this](https://stackoverflow.com/a/20054809).
+Then copy git-switch-fzf script to some dir that is in your `$PATH` variable. See [this](https://stackoverflow.com/a/20054809)
 
 ___
 
@@ -32,7 +32,7 @@ Or you can run `install.sh` from this repo.
   (./git-switch-fzf-tmp/install.sh || true) && \
   rm -rf ./git-switch-fzf-tmp
 ```
-
+___
 
 #### (Optional) Add short alias
 ```shell
@@ -88,6 +88,6 @@ Examples:
   echo "selected hash is \$(git-switch-fzf -e echo --take-hash)" > /tmp/test  --  use returned value in other command, e.g. for write it to file
 ```
 
-
+___
 Tested and works fine on Linux and macOS. Windows - not tested
 
