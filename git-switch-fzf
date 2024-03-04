@@ -170,4 +170,5 @@ awk -v n="$GSF_TAKE_NTH" '{print $n}' |\
 sed 's/origin\///' |\
 
 # передать результат предыдущих команд в качестве аргумента указанной команды
-xargs -o $GSF_EXEC;
+#  -r, --no-run-if-empty
+xargs -o -r $GSF_EXEC;
